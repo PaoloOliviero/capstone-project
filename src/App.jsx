@@ -6,10 +6,11 @@ import Carico from "./component/Carico";
 import RichiesteProdotto from "./component/Richiesteprodotto";
 import MovimentoMagazzino from "./component/MovimentoMagazzino";
 import StoricoPercorrenze from "./component/StoricoPercorso";
+import Commerciale from "./component/Commerciale";
 
-function App() {
+function LayoutConSidebar() {
   return (
-    <Router>
+    <>
       <MyNav />
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -19,7 +20,22 @@ function App() {
         <Route path="/movimenti" element={<MovimentoMagazzino />} />
         <Route path="/storico" element={<StoricoPercorrenze />} />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Pagina commerciale con navbar dedicata */}
+        <Route path="/commerciale/*" element={<Commerciale />} />
+
+        {/* Tutte le altre pagine con sidebar */}
+        <Route path="/*" element={<LayoutConSidebar />} />
+      </Routes>
     </Router>
   );
 }
+
 export default App;

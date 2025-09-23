@@ -38,8 +38,8 @@ function MyNav() {
         </NavLink>
 
         <NavDropdown title="Link" id="sidebarDropdown">
-          <NavDropdown.Item as={NavLink} to="/action">
-            Action
+          <NavDropdown.Item as={NavLink} to="/commerciale">
+            Commerciale
           </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item as={NavLink} to="/altro">
