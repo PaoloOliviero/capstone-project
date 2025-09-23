@@ -1,13 +1,25 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MyNav from "./component/MyNav";
-import Ordini from "./component/Ordini";
+import ProdottoMagazzino from "./component/ProdottoMagazzino";
+import Login from "./component/Login";
+import Carico from "./component/Carico";
+import RichiesteProdotto from "./component/Richiesteprodotto";
+import MovimentoMagazzino from "./component/MovimentoMagazzino";
+import StoricoPercorrenze from "./component/StoricoPercorso";
 
 function App() {
   return (
-    <>
+    <Router>
       <MyNav />
-      <Ordini />
-    </>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/magazzino" element={<ProdottoMagazzino />} />
+        <Route path="/richieste" element={<RichiesteProdotto />} />
+        <Route path="/carichi" element={<Carico />} />
+        <Route path="/movimenti" element={<MovimentoMagazzino />} />
+        <Route path="/storico" element={<StoricoPercorrenze />} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
