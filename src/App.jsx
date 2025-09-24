@@ -7,6 +7,7 @@ import RichiesteProdotto from "./component/Richiesteprodotto";
 import MovimentoMagazzino from "./component/MovimentoMagazzino";
 import StoricoPercorrenze from "./component/StoricoPercorso";
 import Commerciale from "./component/Commerciale";
+import Ticket from "./component/Ticket";
 
 function LayoutConSidebar() {
   return (
@@ -14,6 +15,7 @@ function LayoutConSidebar() {
       <MyNav />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/ticket" element={<Ticket />} />
         <Route path="/magazzino" element={<ProdottoMagazzino />} />
         <Route path="/richieste" element={<RichiesteProdotto />} />
         <Route path="/carichi" element={<Carico />} />

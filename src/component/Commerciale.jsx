@@ -12,14 +12,14 @@ function Commerciale() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar class="sidebar1" bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand>Area Commerciale</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/commerciale/clienti">
               Clienti
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/commerciale/OrdiniClienti">
+            <Nav.Link as={NavLink} to="/commerciale/ordini-clienti">
               Ordini Clienti
             </Nav.Link>
             <Nav.Link as={NavLink} to="/commerciale/fatture">
