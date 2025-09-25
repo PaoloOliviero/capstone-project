@@ -6,7 +6,6 @@ function Carico() {
   const [categoria, setCategoria] = useState("");
   const [descrizione, setDescrizione] = useState("");
   const [mezzoId, setMezzoId] = useState("");
-
   const [carichi, setCarichi] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -18,6 +17,7 @@ function Carico() {
       });
 
       const data = await response.json();
+
       if (Array.isArray(data)) {
         setCarichi(data);
       } else if (Array.isArray(data.content)) {
@@ -39,15 +39,13 @@ function Carico() {
       url += `/filtradescrizione?descrizione=${descrizione}`;
     } else if (mezzoId) {
       url += `/filtramezzo?mezzoId=${mezzoId}`;
-    } else {
-      url += `/con-relazionidto`;
     }
 
     fetchCarichi(url);
   };
 
   useEffect(() => {
-    fetchCarichi("http://localhost:8084/carichi/con-relazionidto");
+    fetchCarichi("http://localhost:8084/carichi");
   }, []);
 
   return (
@@ -71,6 +69,7 @@ function Carico() {
           </Button>
         </div>
       </Form>
+
       <div className="ordine-tabella mt-4">
         {Array.isArray(carichi) && carichi.length === 0 ? (
           <p>Nessun carico trovato.</p>
@@ -90,11 +89,15 @@ function Carico() {
               {carichi.map((c, index) => (
                 <tr key={index}>
                   <td>{c.id}</td>
-                  <td>{c.categoria}</td>
-                  <td>{c.descrizione}</td>
+                  <td>{c.categoria ?? "N/D"}</td>
+                  <td>{c.descrizione ?? "N/D"}</td>
                   <td>{c.volume ?? "N/D"}</td>
-                  <td>{c.mezzoId ?? "N/D"}</td>
-                  <td>{Array.isArray(c.prodottiMagazzinoIds) ? c.prodottiMagazzinoIds.join(", ") : "N/D"}</td>
+                  <td>{"TR-" + c.mezzoId ?? "N/D"}</td>
+                  <td>
+                    {Array.isArray(c.prodottoMagazzinoIds) && c.prodottoMagazzinoIds.length > 0
+                      ? c.prodottoMagazzinoIds.map((id) => "PM-" + id).join(", ")
+                      : "N/D"}
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Form, Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
-import "./OrdiniClienti.css"; // riutilizzo lo stile già definito
+import "./OrdiniClienti.css";
 
 function Fatture() {
   const [importoMax, setImportoMax] = useState("");
@@ -96,10 +96,10 @@ function Fatture() {
               {fatture.map((f, index) => (
                 <tr key={index}>
                   <td>{f.id}</td>
-                  <td>{f.dataEmissione}</td>
-                  <td>{f.importo}</td>
-                  <td>{f.statoFattura?.nome ?? "N/D"}</td>
-                  <td>{f.cliente?.id ?? "N/D"}</td>
+                  <td>{f.data ?? "N/D"}</td>
+                  <td>{f.importo ?? "N/D"}</td>
+                  <td>{f.statoFattura ?? "N/D"}</td>
+                  <td>{f.clienteId ?? "N/D"}</td>
                 </tr>
               ))}
             </tbody>

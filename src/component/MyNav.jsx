@@ -87,8 +87,6 @@ function MyNav() {
           </NavDropdown.Item>
         </NavDropdown>
 
-        <Nav.Link disabled>Link disabilitato</Nav.Link>
-
         {token ? (
           <Button variant="outline-danger" className="mt-3" onClick={handleLogout}>
             Logout

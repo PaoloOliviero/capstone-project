@@ -33,14 +33,14 @@ function OrdiniClienti() {
       });
 
       const data = await response.json();
-      setOrdini(Array.isArray(data.content) ? data.content : []);
+      setOrdini(Array.isArray(data) ? data : []);
     } catch {
       alert("Errore di rete o server.");
     }
   };
 
   const handleSearch = () => {
-    let url = "http://localhost:8084/ordinicliente";
+    let url = "http://localhost:8084/ordinicliente/con-relazioni";
 
     const params = [];
     if (id) params.push(`id=${id}`);
@@ -51,7 +51,7 @@ function OrdiniClienti() {
     if (segmentoId) params.push(`segmentoId=${segmentoId}`);
 
     if (params.length > 0) {
-      url += "/filtro?" + params.join("&");
+      url += "?" + params.join("&");
     }
 
     fetchOrdini(url);
@@ -73,7 +73,7 @@ function OrdiniClienti() {
       });
 
       if (response.ok) {
-        await fetchOrdini("http://localhost:8084/ordinicliente");
+        await fetchOrdini("http://localhost:8084/ordinicliente/con-relazioni");
         handleCloseModal();
       } else {
         const errorText = await response.text();
@@ -85,7 +85,7 @@ function OrdiniClienti() {
   };
 
   useEffect(() => {
-    fetchOrdini("http://localhost:8084/ordinicliente");
+    fetchOrdini("http://localhost:8084/ordinicliente/con-relazioni");
   }, []);
 
   return (
@@ -167,9 +167,9 @@ function OrdiniClienti() {
                   <td>{o.id}</td>
                   <td>{o.dataOrdine}</td>
                   <td>{o.statoOrdine}</td>
-                  <td>{o.cliente?.ragioneSociale ?? "—"}</td>
-                  <td>{o.fattura?.importo ?? "—"}</td>
-                  <td>{o.segmento?.id ?? "—"}</td>
+                  <td>{o.ragioneSociale ?? "—"}</td>
+                  <td>{o.importoFattura ?? "—"}</td>
+                  <td>{o.segmentoId ?? "—"}</td>
                 </tr>
               ))}
             </tbody>

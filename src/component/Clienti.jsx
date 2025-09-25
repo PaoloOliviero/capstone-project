@@ -97,9 +97,9 @@ function OrdiniClienti() {
                 <tr key={index}>
                   <td>{c.id}</td>
                   <td>{c.ragioneSociale}</td>
-                  <td>{c.fatturato}</td>
-                  <td>{c.dataInserimento}</td>
-                  <td>{c.ultimoContatto}</td>
+                  <td>{c.fatturatoAnnuale ?? "—"}</td>
+                  <td>{c.dataInserimento ?? "—"}</td>
+                  <td>{c.dataUltimoContatto ?? "—"}</td>
                 </tr>
               ))}
             </tbody>

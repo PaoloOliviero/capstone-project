@@ -89,22 +89,24 @@ function StoricoPercorrenze() {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Tempo Tratta</th>
+                <th>Data Registrazione</th>
                 <th>Mezzo</th>
                 <th>Autista</th>
                 <th>Magazzino Entrata</th>
                 <th>Magazzino Uscita</th>
+                <th>Prodotto Magazzino</th>
               </tr>
             </thead>
             <tbody>
               {storici.map((s, index) => (
                 <tr key={index}>
                   <td>{s.id}</td>
-                  <td>{s.tempoEffettivoTratta}</td>
+                  <td>{s.dataRegistrazione ?? "N/D"}</td>
                   <td>{s.mezzoDiTrasporto?.id ?? "N/D"}</td>
                   <td>{s.autista?.id ?? "N/D"}</td>
                   <td>{s.magazzinoEntrata?.id ?? "N/D"}</td>
                   <td>{s.magazzinoUscita?.id ?? "N/D"}</td>
+                  <td>{s.prodottoMagazzino?.id ?? "N/D"}</td>
                 </tr>
               ))}
             </tbody>

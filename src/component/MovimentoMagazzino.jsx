@@ -206,13 +206,13 @@ function MovimentoMagazzino() {
             <tbody>
               {movimenti.map((m, index) => (
                 <tr key={index}>
-                  <td>{m.id}</td>
+                  <td>{m.Id}</td>
                   <td>{m.quantity}</td>
                   <td>{m.dataRegistrazione}</td>
-                  <td>{m.magazzino?.id ?? "N/D"}</td>
-                  <td>{m.prodottoMagazzino?.id ?? "N/D"}</td>
+                  <td>{m.magazzinoId ?? "N/D"}</td>
+                  <td>{m.prodottoMagazzinoId ?? "N/D"}</td>
                   <td>
-                    {m.registratoDa?.nome ?? "N/D"} ({m.registratoDa?.id})
+                    {m.registratoDa ?? "N/D"} ({m.utenteId ?? "N/D"})
                   </td>
                 </tr>
               ))}

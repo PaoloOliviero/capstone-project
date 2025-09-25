@@ -229,8 +229,9 @@ function RichiesteProdotto() {
                   <td>{r.quantitaRichiesta}</td>
                   <td>{r.dataRichiesta}</td>
                   <td>{r.motivazione}</td>
-                  <td>{r.richiestoDa}</td>
-                  <td>{r.magazzinoId}</td>
+                  <td>{"PM-" + r.prodottoMagazzinoId}</td>
+                  <td>{"MG-" + r.magazzinoId}</td>
+                  <td>{r.richiestoDaId}</td>
                 </tr>
               ))}
             </tbody>

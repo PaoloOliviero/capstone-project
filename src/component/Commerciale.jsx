@@ -12,7 +12,7 @@ function Commerciale() {
 
   return (
     <>
-      <Navbar class="sidebar1" bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand>Area Commerciale</Navbar.Brand>
           <Nav className="me-auto">
