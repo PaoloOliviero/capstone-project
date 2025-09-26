@@ -3,6 +3,7 @@ import { Form, Button, FormControl, FormGroup, FormLabel, Modal } from "react-bo
 import "./OrdiniClienti.css";
 
 function OrdiniClienti() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [id, setId] = useState("");
   const [dataOrdine, setDataOrdine] = useState("");
   const [statoOrdine, setStatoOrdine] = useState("");
@@ -63,6 +64,8 @@ function OrdiniClienti() {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
       const response = await fetch(`http://localhost:8084/ordinicliente/${modalOrdineId}/classifica?segmentoId=${modalSegmentoId}`, {
         method: "POST",
@@ -81,6 +84,8 @@ function OrdiniClienti() {
       }
     } catch {
       alert("Errore di rete o server.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -139,7 +144,7 @@ function OrdiniClienti() {
               <FormLabel>Segmento ID</FormLabel>
               <FormControl type="number" value={modalSegmentoId} onChange={(e) => setModalSegmentoId(e.target.value)} />
             </FormGroup>
-            <Button className="ordini-bottone" variant="success" onClick={handleAssegnaSegmento}>
+            <Button className="ordini-bottone" variant="success" onClick={handleAssegnaSegmento} disabled={isSubmitting}>
               Invia
             </Button>
           </Form>

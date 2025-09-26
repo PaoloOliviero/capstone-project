@@ -92,7 +92,7 @@ function Carico() {
                   <td>{c.categoria ?? "N/D"}</td>
                   <td>{c.descrizione ?? "N/D"}</td>
                   <td>{c.volume ?? "N/D"}</td>
-                  <td>{"TR-" + c.mezzoId ?? "N/D"}</td>
+                  <td>{"TR-" + c.mezzoId}</td>
                   <td>
                     {Array.isArray(c.prodottoMagazzinoIds) && c.prodottoMagazzinoIds.length > 0
                       ? c.prodottoMagazzinoIds.map((id) => "PM-" + id).join(", ")

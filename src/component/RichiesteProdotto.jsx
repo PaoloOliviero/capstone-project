@@ -231,7 +231,7 @@ function RichiesteProdotto() {
                   <td>{r.motivazione}</td>
                   <td>{"PM-" + r.prodottoMagazzinoId}</td>
                   <td>{"MG-" + r.magazzinoId}</td>
-                  <td>{r.richiestoDaId}</td>
+                  <td>{"ID-" + r.richiestoDaId}</td>
                 </tr>
               ))}
             </tbody>

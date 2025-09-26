@@ -101,12 +101,12 @@ function StoricoPercorrenze() {
               {storici.map((s, index) => (
                 <tr key={index}>
                   <td>{s.id}</td>
-                  <td>{s.dataRegistrazione ?? "N/D"}</td>
-                  <td>{s.mezzoDiTrasporto?.id ?? "N/D"}</td>
-                  <td>{s.autista?.id ?? "N/D"}</td>
-                  <td>{s.magazzinoEntrata?.id ?? "N/D"}</td>
-                  <td>{s.magazzinoUscita?.id ?? "N/D"}</td>
-                  <td>{s.prodottoMagazzino?.id ?? "N/D"}</td>
+                  <td>{s.dataRegistrazione}</td>
+                  <td>{"TR-" + s.mezzoDiTrasporto?.id}</td>
+                  <td>{"AT-" + s.autista?.id}</td>
+                  <td>{"MG-" + s.magazzinoEntrata?.id}</td>
+                  <td>{"MG-" + s.magazzinoUscita?.id}</td>
+                  <td>{"PM-" + s.prodottoMagazzino?.id}</td>
                 </tr>
               ))}
             </tbody>

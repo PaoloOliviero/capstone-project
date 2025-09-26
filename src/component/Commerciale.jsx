@@ -2,10 +2,10 @@ import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import Clienti from "./Clienti";
-import Spedizioni from "./Spedizioni";
 import Prodotti from "./Prodotti";
 import OrdiniClienti from "./OrdiniClienti";
 import Fatture from "./Fatture";
+import Segmenti from "./Segmenti";
 
 function Commerciale() {
   const navigate = useNavigate();
@@ -28,11 +28,10 @@ function Commerciale() {
             <Nav.Link as={NavLink} to="/commerciale/prodotti">
               Prodotti
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/commerciale/spedizioni">
-              Spedizioni
+            <Nav.Link as={NavLink} to="/commerciale/segmenti">
+              Segmenti
             </Nav.Link>
           </Nav>
-
           <Button variant="outline-light" onClick={() => navigate("/operativo")}>
             Vai a Gestione Operativa
           </Button>
@@ -45,7 +44,7 @@ function Commerciale() {
           <Route path="ordini-clienti" element={<OrdiniClienti />} />
           <Route path="fatture" element={<Fatture />} />
           <Route path="prodotti" element={<Prodotti />} />
-          <Route path="spedizioni" element={<Spedizioni />} />
+          <Route path="segmenti" element={<Segmenti />} />
         </Routes>
       </Container>
     </>

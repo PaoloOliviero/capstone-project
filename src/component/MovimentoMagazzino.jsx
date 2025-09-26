@@ -209,10 +209,10 @@ function MovimentoMagazzino() {
                   <td>{m.Id}</td>
                   <td>{m.quantity}</td>
                   <td>{m.dataRegistrazione}</td>
-                  <td>{m.magazzinoId ?? "N/D"}</td>
-                  <td>{m.prodottoMagazzinoId ?? "N/D"}</td>
+                  <td>{"MG-1" + m.magazzinoId}</td>
+                  <td>{"PM-1" + m.prodottoMagazzinoId}</td>
                   <td>
-                    {m.registratoDa ?? "N/D"} ({m.utenteId ?? "N/D"})
+                    {m.registratoDa} ({"ID" + m.utenteId})
                   </td>
                 </tr>
               ))}

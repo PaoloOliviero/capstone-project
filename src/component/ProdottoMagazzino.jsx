@@ -98,8 +98,8 @@ function ProdottoMagazzino() {
                   <td>{p.id}</td>
                   <td>{p.quantitaDisponibile}</td>
                   <td>{p.dataIngresso}</td>
-                  <td>{p.prodottoId ?? "N/D"}</td>
-                  <td>{p.magazzinoId ?? "N/D"}</td>
+                  <td>{"PM-" + p.prodottoId}</td>
+                  <td>{"MG-" + p.magazzinoId}</td>
                 </tr>
               ))}
             </tbody>
