@@ -21,10 +21,8 @@ function Login() {
       }
 
       const data = await res.json();
-
       localStorage.setItem("token", data.accessToken);
-
-      setMessaggio("Login riuscito!");
+      setMessaggio("Login riuscito");
       navigate("/richieste");
     } catch (error) {
       console.error("Errore nel login:", error);
@@ -33,27 +31,68 @@ function Login() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <div style={{ width: "300px", textAlign: "center" }}>
-        <h2>Login</h2>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "#c4bbac",
+      }}
+    >
+      <div
+        style={{
+          width: "350px",
+          padding: "30px",
+          borderRadius: "12px",
+          backgroundColor: "#ffffff",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ marginBottom: "20px", color: "#333" }}>Login</h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+          style={{
+            width: "100%",
+            marginBottom: "15px",
+            padding: "10px",
+            borderRadius: "6px",
+            border: "1px solid #ccc",
+          }}
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+          style={{
+            width: "100%",
+            marginBottom: "15px",
+            padding: "10px",
+            borderRadius: "6px",
+            border: "1px solid #ccc",
+          }}
         />
-        <button onClick={handleLogin} style={{ width: "100%", padding: "8px" }}>
+        <button
+          onClick={handleLogin}
+          style={{
+            width: "100%",
+            padding: "10px",
+            borderRadius: "6px",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
           Accedi
         </button>
-        <p>{messaggio}</p>
+        {messaggio && <p style={{ marginTop: "15px", color: messaggio.includes("riuscito") ? "green" : "red" }}>{messaggio}</p>}
       </div>
     </div>
   );

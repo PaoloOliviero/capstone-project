@@ -26,13 +26,12 @@ function OrdiniClienti() {
     setModalSegmentoId("");
   };
 
-  const fetchOrdini = async (url) => {
+  const fetchOrdini = async (endpoint) => {
     try {
-      const response = await fetch(url, {
+      const response = await fetch(endpoint, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
-
       const data = await response.json();
       setOrdini(Array.isArray(data) ? data : []);
     } catch {
@@ -41,21 +40,14 @@ function OrdiniClienti() {
   };
 
   const handleSearch = () => {
-    let url = "http://localhost:8084/ordinicliente/con-relazioni";
+    if (id) return fetchOrdini(`http://localhost:8084/ordinicliente/${id}`);
+    if (dataOrdine) return fetchOrdini(`http://localhost:8084/ordinicliente/filtro/data-ordine?dataOrdine=${dataOrdine}`);
+    if (statoOrdine) return fetchOrdini(`http://localhost:8084/ordinicliente/filtro/stato?statoOrdine=${statoOrdine}`);
+    if (ragioneSociale) return fetchOrdini(`http://localhost:8084/ordinicliente/filtro/ragione-sociale?ragioneSociale=${ragioneSociale}`);
+    if (importoFattura) return fetchOrdini(`http://localhost:8084/ordinicliente/filtro/importo?importo=${importoFattura}`);
+    if (segmentoId) return fetchOrdini(`http://localhost:8084/ordinicliente/filtro/segmento?segmentoId=${segmentoId}`);
 
-    const params = [];
-    if (id) params.push(`id=${id}`);
-    if (dataOrdine) params.push(`dataOrdine=${dataOrdine}`);
-    if (statoOrdine) params.push(`statoOrdine=${statoOrdine}`);
-    if (ragioneSociale) params.push(`ragioneSociale=${ragioneSociale}`);
-    if (importoFattura) params.push(`importoFattura=${importoFattura}`);
-    if (segmentoId) params.push(`segmentoId=${segmentoId}`);
-
-    if (params.length > 0) {
-      url += "?" + params.join("&");
-    }
-
-    fetchOrdini(url);
+    fetchOrdini("http://localhost:8084/ordinicliente/con-relazioni");
   };
 
   const handleAssegnaSegmento = async () => {

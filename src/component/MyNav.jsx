@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import { BsBellFill } from "react-icons/bs";
+import { useState, useRef, useEffect } from "react";
 import { BellFill } from "react-bootstrap-icons";
 import { Button, Form, Nav, NavDropdown, Overlay, Popover, Badge } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -31,8 +30,13 @@ function MyNav() {
     }
   };
 
-  const handleToggleNotifiche = () => {
+  useEffect(() => {
     fetchNotifiche();
+  }, []);
+
+  const handleToggleNotifiche = () => {
+    const aggiornate = notifiche.map((n) => ({ ...n, visualizzata: true }));
+    setNotifiche(aggiornate);
     setShowNotifiche(!showNotifiche);
   };
 
