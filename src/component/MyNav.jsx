@@ -81,13 +81,9 @@ function MyNav() {
           Carichi
         </NavLink>
 
-        <NavDropdown title="Link" id="sidebarDropdown">
+        <NavDropdown title="Link" id="sidebarDropdown" className="nav-link link-custom">
           <NavDropdown.Item as={NavLink} to="/commerciale">
             Commerciale
-          </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item as={NavLink} to="/altro">
-            Something else here
           </NavDropdown.Item>
         </NavDropdown>
 

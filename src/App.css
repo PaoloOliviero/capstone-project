@@ -7,6 +7,14 @@
   transition: background-color 0.3s ease;
 }
 
+.link-custom .dropdown-toggle {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  font-weight: bold;
+  border: none;
+  padding-left: 0;
+}
+
 .link-commerciale:hover {
   background-color: #b71c1c;
   color: #fff !important;
@@ -201,4 +209,22 @@
   background-color: #f8f9fa;
   font-weight: bold;
   color: #333;
+}
+
+.dropdown-menu {
+  background-color: #c4bbac !important;
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-menu .dropdown-item {
+  color: rgb(0, 0, 0) !important;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #1cb79d !important;
+  color: #fff !important;
+  text-decoration: underline;
 }
